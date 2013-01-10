@@ -1,6 +1,11 @@
 Meteor.subscribe 'friends'
 
-Template.friendsList.friends = -> Friends.find()
+Template.friendsList.friends = -> 
+  select_criteria = {}
+  tag_filter = Session.get 'tag_filter'
+  select_criteria.tags = tag_filter if tag_filter
+  Friends.find select_criteria
+  
 Template.friend.adding_tag = -> Session.equals 'editing_addtag', this._id
 Template.friend.tag_objs = ->
   friend_id = this._id

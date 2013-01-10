@@ -16,7 +16,7 @@ Template.tag_filter.tags = ->
   total_count = 0
 
   for friend in Friends.find().fetch()
-    for tag in friend.tags || []
+    for tag in friend.tags 
       tag_counts[tag] = 0 unless tag_counts[tag]?
       tag_counts[tag]++
     total_count++
