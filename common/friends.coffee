@@ -11,7 +11,7 @@ Friends.refreshIds = (userId) ->
       friends = result.data.data
       for friend in friends
         unless Friends.findOne { user: userId, facebook_id: friend.id }
-          Friends.insert user: userId, facebook_id: friend.id, name: friend.name
+          Friends.insert user: userId, facebook_id: friend.id, name: friend.name, tags: []
 
 Meteor.methods
   refreshIds: -> Friends.refreshIds(@userId)
