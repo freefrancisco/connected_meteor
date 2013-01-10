@@ -22,3 +22,6 @@ Template.friend.events = {
     $("#friend-input").focus()
 }
 
+Meteor.startup ->
+  Meteor.call("refreshIds") if userId
+
