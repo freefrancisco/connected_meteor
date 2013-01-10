@@ -1,7 +1,7 @@
-Template.todo_tag.events = {
+Template.friend_tag.events = {
   'click .remove': (evt) ->
     tag = this.tag
-    id  = this.todo_id
+    id  = this.friend_id
 
     evt.target.parentNode.style.opacity = 0
     # wait for CSS animation to finish
@@ -10,7 +10,7 @@ Template.todo_tag.events = {
     , 300)
   }
 
-# Pick out the unique tags from all todos in current list.
+# Pick out the unique tags from all friends in current list.
 Template.tag_filter.tags = ->
   tag_counts  = {}
   total_count = 0
