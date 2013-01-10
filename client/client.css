@@ -39,7 +39,7 @@ h3 {
     text-align: center;
 }    
 
-#top-tag-filter, #main-pane, #side-pane, #bottom-pane {
+#top-pane, #main-pane, #side-pane, #bottom-pane {
     position: absolute;
     left: 0;
     right: 0;
@@ -48,7 +48,11 @@ h3 {
     overflow: hidden;
 }
 
-#top-tag-filter {
+#login {
+  text-align: center;
+}
+
+#top-pane {
     left: 300px;
     height: 44px;
     bottom: auto;
@@ -63,7 +67,7 @@ h3 {
 #main-pane {
     top: 45px;
     bottom: 0;
-    left: 220px;
+    left: 320px;
     overflow: auto;
 }
 
