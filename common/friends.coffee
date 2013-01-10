@@ -14,9 +14,17 @@ Friends.loadFromFacebook = (userId) ->
       # fields: "id"
       
   friends = result.data.data
-  
-  Friends.insert {user: userId, facebook_id: friend.id, name: friend.name} unless Friends.find {id: friend.id} for friend in friends
-      
+  for friend in friends
+    found = Friends.findOne {facebook_id: friend.id}
+    console.log found
+    # console.log "found friend: #{found}"
+    # console.log JSON.stringify(found)
+    if found?
+      Friends.update {facebook_id: friend.id}, {user: userId, facebook_id: friend.id, name: friend.name} 
+      console.log "found friend #{friend} in Friends already"
+    else
+      Friends.insert {user: userId, facebook_id: friend.id, name: friend.name} 
+      console.log "inserted friend #{friend} into Friends"    
   "foo #{userId}"
 
 

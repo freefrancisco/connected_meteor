@@ -16,4 +16,24 @@
 
 <template name="friends">
 	<h3>Friends:</h3>
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Id </th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each friends}}
+      {{> friend}}
+    {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="friend">
+  <tr class="friend">
+    <td class="name">{{name}}</td>
+    <td class="facebook_id">{{facebook_id}}</td>
+  </tr>
 </template>
