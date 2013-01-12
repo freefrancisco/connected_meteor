@@ -6,7 +6,7 @@ Friends.refreshIds = (userId) ->
     result = Meteor.http.call "GET", "https://graph.facebook.com/#{user.services.facebook.id}/friends", 
       params: 
         access_token: user.services.facebook.accessToken 
-        limit: 20 
+        # limit: 20 
     if result?.data?.data?    
       friends = result.data.data
       for friend in friends
@@ -14,5 +14,7 @@ Friends.refreshIds = (userId) ->
           Friends.insert user: userId, facebook_id: friend.id, name: friend.name, tags: []
 
 Meteor.methods
-  refreshIds: -> Friends.refreshIds(@userId)
+  refreshIds: -> 
+    @unblock()
+    Friends.refreshIds(@userId)
     

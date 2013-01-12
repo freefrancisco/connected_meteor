@@ -1,6 +1,6 @@
 Meteor.publish 'friends', -> 
   Friends.find user: @userId, 
-    limit: 15
+    # limit: 15
     sort: "name"
 
 Meteor.startup -> 
